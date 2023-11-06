@@ -7,7 +7,6 @@ k=i+(j*m)
 */
 #include<stdio.h>
 #include<stdlib.h>
-
 int main()
 {
     int**mat,*arr1,*arr2;
