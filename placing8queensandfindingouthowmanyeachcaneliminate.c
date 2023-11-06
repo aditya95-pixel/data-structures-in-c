@@ -47,7 +47,6 @@ int main()
             }
         }
     }
-
     printf("The positions are:\n");
     for(i=0;i<8;i++)
     {
@@ -94,7 +93,6 @@ int main()
                     {
                         d4++;
                     }
-
                 }
             }
         }
