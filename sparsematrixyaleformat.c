@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int **mat,m,n,i,j,counter=0,k,c,r;
+    int *A,*IA,*JA;
+    printf("Enter the no. of rows and columns:");
+    scanf("%d%d",&m,&n);
+    mat=(int**)malloc(m*sizeof(int*));
+    printf("Enter the elements:\n");
+    for(i=0;i<m;i++)
+    {
+        mat[i]=(int*)malloc(m*sizeof(int));
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&mat[i][j]);
+            if(mat[i][j]!=0)
+            counter++;
+        }
+    }
+    A=(int*)malloc(counter*sizeof(int));
+    JA=(int*)malloc(counter*sizeof(int));
+    IA=(int*)malloc((m+1)*sizeof(int));
+    k=0;
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(mat[i][j]!=0)
+            {
+                A[k]=mat[i][j];
+                JA[k++]=j;
+            }
+        }
+    }
+    IA[0]=0;
+    k=1;
+    c=0;
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(mat[i][j]!=0)
+            {
+                c++;
+            }
+        }
+        IA[k++]=c;
+    }
+    printf("\nA\n");
+    for(i=0;i<counter;i++)
+    {
+        printf("%d\t",A[i]);
+    }
+    printf("\nIA\n");
+    for(i=0;i<m+1;i++)
+    {
+        printf("%d\t",IA[i]);
+    }
+    printf("\nJA\n");
+    for(i=0;i<counter;i++)
+    printf("%d\t",JA[i]);
+    r=1;
+    printf("\nMatrix\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            c=0;
+            for(k=IA[r-1];k<IA[r];k++)
+            {
+                if(j==JA[k])
+                {
+                    printf("%d\t",A[k]);
+                    c++;
+                }
+            }
+            if(c==0)
+            printf("0\t");
+        }
+        r++;
+        printf("\n");
+    }
+    free(A);
+    free(mat);
+    free(IA);
+    free(JA);
+}
