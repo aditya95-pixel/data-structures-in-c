@@ -28,11 +28,11 @@ int main()
         }
     }
     if(pos!=-1){
-    printf("Max subarray is \n");
-    for(i=pos;i<pos+maxlen;i++)
-    {
-        printf("%d ",arr[i]);
-    }
+        printf("Max subarray is \n");
+        for(i=pos;i<pos+maxlen;i++)
+        {
+            printf("%d ",arr[i]);
+        }
     }
     printf("\n");
     printf("%d is the maximum length",maxlen);
