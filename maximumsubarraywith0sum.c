@@ -25,7 +25,6 @@ int main()
                     pos=i;
                 }
             }
-
         }
     }
     if(pos!=-1){
